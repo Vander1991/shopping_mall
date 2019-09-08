@@ -1,0 +1,30 @@
+#mybatis:
+#  typeAliasesPackage: com.mall.mapper
+#  mapperLocations: classpath*:com/mall/mapper/*.xml
+#  config-location: classpath*:mybatis/mybatis.xml
+
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/test
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
+#    # 使用druid数据源
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+#------------------------------- DataSource ---------------------------------
+#1) shoppingMall Datasource
+datasource:
+  shoppingmall:
+    url: jdbc:mysql://192.168.118.168:3306/shoppingMall
+    username: vander
+    password: Ting1994!
+    driverClass: com.mysql.jdbc.Driver
+    maxActive: 20
+  mapperLocations: classpath:mybatis/mapper/*.xml
+#2) mybatis
+mybatis:
+  configLocation: classpath:/mybatis/mybatis.xml
+
+server:
+  port: 8283
