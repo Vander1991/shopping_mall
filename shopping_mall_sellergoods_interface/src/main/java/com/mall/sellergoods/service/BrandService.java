@@ -1,6 +1,7 @@
 package com.mall.sellergoods.service;
 
 
+import com.mall.entity.PageResult;
 import com.mall.model.TbBrand;
 
 import java.util.List;
@@ -16,4 +17,10 @@ public interface BrandService {
      * @return
      */
     List<TbBrand> findAll();
+    /**
+     * 返回分页列表
+     * @return
+     */
+    PageResult findPage(int pageNum, int pageSize);
+
 }

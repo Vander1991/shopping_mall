@@ -1,6 +1,7 @@
 package com.mall.web;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.mall.entity.PageResult;
 import com.mall.model.TbBrand;
 import com.mall.sellergoods.service.BrandService;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,4 +25,10 @@ public class BrandController {
     public List<TbBrand> findAll(){
         return brandService.findAll();
     }
+
+    @RequestMapping("findPage")
+    public PageResult findPage(int pageNum, int pageSize){
+        return brandService.findPage(pageNum, pageSize);
+    }
+
 }

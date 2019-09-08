@@ -36,26 +36,27 @@
 				);				
 			}
 			
-			
+			// 分页加载的时候，页码就会改变并且执行reloadList方法
 			//分页控件配置currentPage:当前页   totalItems :总记录数  itemsPerPage:每页记录数  perPageOptions :分页选项  onChange:当页码变更后自动触发的方法 
 			$scope.paginationConf = {
+			    // 以下:后的是初始值
 				currentPage: 1,
 				totalItems: 10,
 				itemsPerPage: 10,
 				perPageOptions: [10, 20, 30, 40, 50],
 				onChange: function(){
-					// $scope.reloadList();
+					$scope.reloadList();
 				}
 			};
 			
 			//刷新列表
-			// $scope.reloadList=function(){
-			// 	$scope.search( $scope.paginationConf.currentPage ,  $scope.paginationConf.itemsPerPage );
-			// }
+			$scope.reloadList=function(){
+                $scope.findPage( $scope.paginationConf.currentPage ,  $scope.paginationConf.itemsPerPage );
+			}
 			
-			//分页 
+			//分页
 			$scope.findPage=function(page,size){
-				$http.get('../brand/findPage.do?page='+page +'&size='+size).success(
+				$http.get('../brand/findPage?pageNum='+page +'&pageSize='+size).success(
 					function(response){
 						$scope.list=response.rows;//显示当前页数据 	
 						$scope.paginationConf.totalItems=response.total;//更新总记录数 
@@ -101,7 +102,7 @@
 			}
 			
 			//删除
-			$scope.dele=function(){
+			$scope.del=function(){
 				
 				
 				if(confirm('确定要删除吗？')){
@@ -122,7 +123,7 @@
 			//条件查询 
 			$scope.search=function(page,size){
 				
-				$http.post('../brand/search.do?page='+page +'&size='+size, $scope.searchEntity).success(
+				$http.post('../brand/search?page='+page +'&size='+size, $scope.searchEntity).success(
 					function(response){
 						$scope.list=response.rows;//显示当前页数据 	
 						$scope.paginationConf.totalItems=response.total;//更新总记录数 
@@ -138,7 +139,7 @@
 	</script>
     
 </head>
-<body class="hold-transition skin-red sidebar-mini" ng-app="pinyougou" ng-controller="brandController" ng-init="findAll()">
+<body class="hold-transition skin-red sidebar-mini" ng-app="pinyougou" ng-controller="brandController">
   <!-- .box-body -->
                     <div class="box-header with-border">
                         <h3 class="box-title">品牌管理</h3>
