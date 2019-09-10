@@ -23,7 +23,7 @@
 	
 	<script type="text/javascript">
 		
-		var app=angular.module('pinyougou',['pagination']);
+		var app=angular.module('mall',['pagination']);
 		app.controller('brandController',function($scope,$http){
 			
 			//查询品牌列表
@@ -70,7 +70,7 @@
 				if($scope.entity.id!=null){
 					methodName='update';
 				}				
-				$http.post('../brand/'+methodName +'.do',$scope.entity).success(
+				$http.post('../brand/'+methodName,$scope.entity).success(
 					function(response){
 						if(response.success){
 							$scope.reloadList();//刷新
@@ -83,7 +83,7 @@
 			
 			//查询实体
 			$scope.findOne=function(id){
-				$http.get('../brand/findOne.do?id='+id).success(
+				$http.get('../brand/findOne?id='+id).success(
 					function(response){
 						$scope.entity=response;
 					}		
@@ -106,7 +106,7 @@
 				
 				
 				if(confirm('确定要删除吗？')){
-					$http.get('../brand/delete.do?ids='+$scope.selectIds).success(
+					$http.get('../brand/delete?ids='+$scope.selectIds).success(
 							function(response){
 								if(response.success){
 									$scope.reloadList();//刷新
@@ -139,7 +139,7 @@
 	</script>
     
 </head>
-<body class="hold-transition skin-red sidebar-mini" ng-app="pinyougou" ng-controller="brandController">
+<body class="hold-transition skin-red sidebar-mini" ng-app="mall" ng-controller="brandController">
   <!-- .box-body -->
                     <div class="box-header with-border">
                         <h3 class="box-title">品牌管理</h3>

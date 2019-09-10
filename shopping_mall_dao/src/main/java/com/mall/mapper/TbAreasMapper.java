@@ -1,7 +1,7 @@
 package com.mall.mapper;
 
-import com.github.abel533.mapper.Mapper;
 import com.mall.model.TbAreas;
+import com.mall.util.CommonMapper;
 
-public interface TbAreasMapper extends Mapper<TbAreas> {
+public interface TbAreasMapper extends CommonMapper<TbAreas> {
 }

@@ -1,7 +1,7 @@
 package com.mall.mapper;
 
-import com.github.abel533.mapper.Mapper;
 import com.mall.model.TbOrder;
+import com.mall.util.CommonMapper;
 
-public interface TbOrderMapper extends Mapper<TbOrder> {
+public interface TbOrderMapper extends CommonMapper<TbOrder> {
 }

@@ -1,7 +1,7 @@
 package com.mall.mapper;
 
-import com.github.abel533.mapper.Mapper;
 import com.mall.model.TbUser;
+import com.mall.util.CommonMapper;
 
-public interface TbUserMapper extends Mapper<TbUser> {
+public interface TbUserMapper extends CommonMapper<TbUser> {
 }

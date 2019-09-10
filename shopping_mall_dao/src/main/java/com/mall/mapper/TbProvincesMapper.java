@@ -1,7 +1,7 @@
 package com.mall.mapper;
 
-import com.github.abel533.mapper.Mapper;
 import com.mall.model.TbProvinces;
+import com.mall.util.CommonMapper;
 
-public interface TbProvincesMapper extends Mapper<TbProvinces> {
+public interface TbProvincesMapper extends CommonMapper<TbProvinces> {
 }

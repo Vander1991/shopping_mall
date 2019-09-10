@@ -1,7 +1,7 @@
 package com.mall.mapper;
 
-import com.github.abel533.mapper.Mapper;
 import com.mall.model.TbCities;
+import com.mall.util.CommonMapper;
 
-public interface TbCitiesMapper extends Mapper<TbCities> {
+public interface TbCitiesMapper extends CommonMapper<TbCities> {
 }

@@ -1,7 +1,7 @@
 package com.mall.mapper;
 
-import com.github.abel533.mapper.Mapper;
 import com.mall.model.TbContentCategory;
+import com.mall.util.CommonMapper;
 
-public interface TbContentCategoryMapper extends Mapper<TbContentCategory> {
+public interface TbContentCategoryMapper extends CommonMapper<TbContentCategory> {
 }
