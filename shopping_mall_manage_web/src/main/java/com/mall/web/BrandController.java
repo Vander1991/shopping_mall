@@ -29,8 +29,8 @@ public class BrandController {
     }
 
     @RequestMapping("findPage")
-    public PageResult findPage(int pageNum, int pageSize){
-        return brandService.findPage(pageNum, pageSize);
+    public PageResult findPage(int page, int rows){
+        return brandService.findPage(page, rows);
     }
 
     /**
@@ -93,13 +93,13 @@ public class BrandController {
     /**
      * 查询+分页
      * @param brand
-     * @param pageNum
-     * @param pageSize
+     * @param page
+     * @param rows
      * @return
      */
     @RequestMapping("/search")
-    public PageResult search(@RequestBody TbBrand brand, int pageNum, int pageSize){
-        return brandService.findPage(brand, pageNum, pageSize);
+    public PageResult search(@RequestBody TbBrand brand, int page, int rows){
+        return brandService.findPage(brand, page, rows);
     }
 
 

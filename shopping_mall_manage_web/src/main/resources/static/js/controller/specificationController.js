@@ -1,5 +1,5 @@
  //控制层 
-app.controller('specificationController' ,function($scope,$controller   ,specificationService){	
+app.controller('specificationController' ,function($scope, $controller, specificationService){
 	
 	$controller('baseController',{$scope:$scope});//继承
 	
@@ -47,15 +47,15 @@ app.controller('specificationController' ,function($scope,$controller   ,specifi
 				}else{
 					alert(response.message);
 				}
-			}		
-		);				
+			}
+);
 	}
 	
 	 
 	//批量删除 
-	$scope.dele=function(){			
-		//获取选中的复选框			
-		specificationService.dele( $scope.selectIds ).success(
+	$scope.del=function(){
+		//获取选中的复选框
+		specificationService.del( $scope.selectIds ).success(
 			function(response){
 				if(response.success){
 					$scope.reloadList();//刷新列表
@@ -85,7 +85,7 @@ app.controller('specificationController' ,function($scope,$controller   ,specifi
 	}
 	
 	//删除规格选项行
-	$scope.deleTableRow=function(index){
+	$scope.delTableRow=function(index){
 		$scope.entity.specificationOptionList.splice(index,1);
 	}
     
