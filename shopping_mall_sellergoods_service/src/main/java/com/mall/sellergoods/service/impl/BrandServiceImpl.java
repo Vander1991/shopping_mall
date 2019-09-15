@@ -11,6 +11,7 @@ import com.mall.sellergoods.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : Winnie
@@ -60,6 +61,7 @@ public class BrandServiceImpl implements BrandService {
             brandMapper.deleteByPrimaryKey(id);
         }
     }
+
     @Override
     public PageResult findPage(TbBrand brand, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
@@ -75,6 +77,14 @@ public class BrandServiceImpl implements BrandService {
         }
         Page<TbBrand> page= (Page<TbBrand>)brandMapper.selectByExample(example);
         return new PageResult(page.getTotal(), page.getResult());
+    }
+
+    /**
+     * 列表数据
+     */
+    @Override
+    public List<Map> selectOptionList() {
+        return brandMapper.selectOptionList();
     }
 
 

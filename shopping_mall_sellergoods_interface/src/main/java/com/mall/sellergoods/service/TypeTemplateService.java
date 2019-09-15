@@ -1,24 +1,21 @@
 package com.mall.sellergoods.service;
-
 import com.mall.entity.PageResult;
-import com.mall.model.TbSpecification;
-import com.mall.modelgroup.Specification;
+import com.mall.model.TbTypeTemplate;
 
 import java.util.List;
-import java.util.Map;
 
 /**
- * 服务层接口
- * @author Administrator
+ * 业务逻辑接口
+ * @author Steven
  *
  */
-public interface SpecificationService {
+public interface TypeTemplateService {
 
 	/**
 	 * 返回全部列表
 	 * @return
 	 */
-	List<TbSpecification> findAll();
+	List<TbTypeTemplate> findAll();
 	
 	
 	/**
@@ -31,13 +28,13 @@ public interface SpecificationService {
 	/**
 	 * 增加
 	*/
-	void add(Specification specification);
+	void add(TbTypeTemplate typeTemplate);
 	
 	
 	/**
 	 * 修改
 	 */
-	void update(Specification specification);
+	void update(TbTypeTemplate typeTemplate);
 	
 
 	/**
@@ -45,7 +42,7 @@ public interface SpecificationService {
 	 * @param id
 	 * @return
 	 */
-	Specification findOne(Long id);
+	TbTypeTemplate findOne(Long id);
 	
 	
 	/**
@@ -60,12 +57,6 @@ public interface SpecificationService {
 	 * @param pageSize 每页记录数
 	 * @return
 	 */
-	PageResult findPage(TbSpecification specification, int pageNum, int pageSize);
-
-	/**
-	 * 获取所有规格用于展示新建商品模板
-	 * @return
-	 */
-	List<Map> selectOptionList();
-
+	PageResult findPage(TbTypeTemplate typeTemplate, int pageNum, int pageSize);
+	
 }

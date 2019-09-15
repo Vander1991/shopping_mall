@@ -15,6 +15,7 @@ import tk.mybatis.mapper.entity.Example;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 业务逻辑实现
@@ -181,5 +182,10 @@ public class SpecificationServiceImpl implements SpecificationService {
 		
 		return result;
 	}
-	
+
+	@Override
+	public List<Map> selectOptionList() {
+		return specificationMapper.selectOptionList();
+	}
+
 }

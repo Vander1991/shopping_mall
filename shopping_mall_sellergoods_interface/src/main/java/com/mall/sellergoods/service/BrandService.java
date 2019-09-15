@@ -5,6 +5,7 @@ import com.mall.entity.PageResult;
 import com.mall.model.TbBrand;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : Winnie
@@ -48,6 +49,10 @@ public interface BrandService {
      * @return
      */
     PageResult findPage(TbBrand brand, int pageNum,int pageSize);
+    /**
+     * 品牌下拉框数据
+     */
+    List<Map> selectOptionList();
 
 
 

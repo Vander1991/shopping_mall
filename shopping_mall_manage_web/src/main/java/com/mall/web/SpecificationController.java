@@ -1,5 +1,6 @@
 package com.mall.web;
 import java.util.List;
+import java.util.Map;
 
 import com.mall.entity.PageResult;
 import com.mall.entity.Result;
@@ -111,5 +112,14 @@ public class SpecificationController {
 	public PageResult search(@RequestBody TbSpecification specification, int page, int rows  ){
 		return specificationService.findPage(specification, page, rows);		
 	}
-	
+
+	/**
+	 * 获取所有规格，用于新建商品模板时的下拉选项
+	 * @return
+	 */
+	@RequestMapping("/selectOptionList")
+	public List<Map> selectOptionList(){
+		return specificationService.selectOptionList();
+	}
+
 }

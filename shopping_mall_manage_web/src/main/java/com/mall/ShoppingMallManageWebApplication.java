@@ -3,6 +3,7 @@ package com.mall;
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 
 /**
  * @author : Vander
@@ -10,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description :
  */
 @EnableDubbo(scanBasePackages = "com.mall")
-@SpringBootApplication
+@SpringBootApplication(exclude={JacksonAutoConfiguration.class})
 public class ShoppingMallManageWebApplication {
     public static void main(String[] args){
         SpringApplication.run(ShoppingMallManageWebApplication.class);

@@ -1,5 +1,5 @@
  //控制层 
-app.controller('brandController' ,function($scope, $controller, brandService){
+app.controller('brandController' ,function($log, $scope, $controller, brandService){
 	
 	$controller('baseController',{$scope:$scope});//继承
 	
@@ -13,7 +13,8 @@ app.controller('brandController' ,function($scope, $controller, brandService){
 	}    
 	
 	//分页
-	$scope.findPage=function(page,rows){			
+	$scope.findPage=function(page, rows, $log){
+		$log.info("Brand : " + "findPage?page=" + page + "?rows=" + rows);
 		brandService.findPage(page,rows).success(
 			function(response){
 				$scope.list=response.rows;	
@@ -33,7 +34,8 @@ app.controller('brandController' ,function($scope, $controller, brandService){
 	
 	//保存 
 	$scope.save=function(){				
-		var serviceObject;//服务层对象  				
+		var serviceObject;//服务层对象
+        console.info("brandController->save：" + angular.toJson($scope.entity, true));
 		if($scope.entity.id!=null){//如果有ID
 			serviceObject=brandService.update( $scope.entity ); //修改  
 		}else{
@@ -68,7 +70,8 @@ app.controller('brandController' ,function($scope, $controller, brandService){
 	$scope.searchEntity={};//定义搜索对象 
 	
 	//搜索
-	$scope.search=function(page,rows){			
+	$scope.search=function(page , rows){
+        console.info("Brand : " + "search?page=" + page + "?rows=" + rows);
 		brandService.search(page,rows,$scope.searchEntity).success(
 			function(response){
 				$scope.list=response.rows;	

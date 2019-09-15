@@ -81,7 +81,7 @@ app.controller('specificationController' ,function($scope, $controller, specific
 	
 	//增加规格选项行
 	$scope.addTableRow=function(){
-		$scope.entity.specificationOptionList.push({});			
+		$scope.entity.specificationOptionList.push({});
 	}
 	
 	//删除规格选项行

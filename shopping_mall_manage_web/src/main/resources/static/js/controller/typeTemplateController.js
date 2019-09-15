@@ -1,5 +1,5 @@
  //控制层 
-app.controller('typeTemplateController' ,function($scope,$controller   ,typeTemplateService,brandService,specificationService){	
+app.controller('typeTemplateController' ,function($log, $scope,$controller   ,typeTemplateService,brandService,specificationService){
 	
 	$controller('baseController',{$scope:$scope});//继承
 	
@@ -13,7 +13,8 @@ app.controller('typeTemplateController' ,function($scope,$controller   ,typeTemp
 	}    
 	
 	//分页
-	$scope.findPage=function(page,rows){			
+	$scope.findPage=function(page,rows){
+		console.info("eject typeTemplate findPage");
 		typeTemplateService.findPage(page,rows).success(
 			function(response){
 				$scope.list=response.rows;	
@@ -23,27 +24,29 @@ app.controller('typeTemplateController' ,function($scope,$controller   ,typeTemp
 	}
 	
 	//查询实体 
-	$scope.findOne=function(id){				
+	$scope.findOne=function(id){
+        console.info("typeTemplateController->findOne：query " + id);
 		typeTemplateService.findOne(id).success(
 			function(response){
-				$scope.entity= response;		
+				$scope.template= response;
 				
 				//转换字符串为json对象（集合）
-				$scope.entity.brandIds=  JSON.parse( $scope.entity.brandIds);
-				$scope.entity.specIds= JSON.parse($scope.entity.specIds);
-				$scope.entity.customAttributeItems = JSON.parse($scope.entity.customAttributeItems);
+				$scope.template.brandIds=  JSON.parse( $scope.template.brandIds);
+				$scope.template.specIds= JSON.parse($scope.template.specIds);
+				$scope.template.customAttributeItems = JSON.parse($scope.template.customAttributeItems);
 				
 			}
 		);				
 	}
 	
 	//保存 
-	$scope.save=function(){				
+	$scope.save=function(){
+		console.info("typeTemplateController->save：" + angular.toJson($scope.template, true));
 		var serviceObject;//服务层对象  				
-		if($scope.entity.id!=null){//如果有ID
-			serviceObject=typeTemplateService.update( $scope.entity ); //修改  
+		if($scope.template.id!=null){//如果有ID
+			serviceObject=typeTemplateService.update( $scope.template ); //修改
 		}else{
-			serviceObject=typeTemplateService.add( $scope.entity  );//增加 
+			serviceObject=typeTemplateService.add( $scope.template  );//增加
 		}				
 		serviceObject.success(
 			function(response){
@@ -59,7 +62,7 @@ app.controller('typeTemplateController' ,function($scope,$controller   ,typeTemp
 	
 	 
 	//批量删除 
-	$scope.dele=function(){			
+	$scope.del=function(){
 		//获取选中的复选框			
 		typeTemplateService.dele( $scope.selectIds ).success(
 			function(response){
@@ -107,11 +110,11 @@ app.controller('typeTemplateController' ,function($scope,$controller   ,typeTemp
 	
 	//增加扩展属性行
 	$scope.addTableRow=function(){
-		$scope.entity.customAttributeItems.push({});
+		$scope.template.customAttributeItems.push({});
 	}
 	//删除扩展属性行
-	$scope.deleTableRow=function(index){
-		$scope.entity.customAttributeItems.splice( index,1);
+	$scope.delTableRow=function(index){
+		$scope.template.customAttributeItems.splice( index,1);
 	}
 	
 });	

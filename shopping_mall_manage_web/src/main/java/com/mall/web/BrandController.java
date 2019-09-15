@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : Winnie
@@ -102,6 +103,14 @@ public class BrandController {
         return brandService.findPage(brand, page, rows);
     }
 
-
+    /**
+     * 获取所有品牌在添加商品类型模板时会用到
+     * @return
+     */
+    @RequestMapping("/selectOptionList")
+    public List<Map> selectOptionList(){
+        List<Map> brandMap = brandService.selectOptionList();
+        return brandMap;
+    }
 
 }
