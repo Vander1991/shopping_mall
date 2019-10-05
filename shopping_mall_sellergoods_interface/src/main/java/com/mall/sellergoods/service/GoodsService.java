@@ -1,23 +1,23 @@
 package com.mall.sellergoods.service;
 
-import com.mall.entity.PageResult;
-import com.mall.model.TbTypeTemplate;
-
 import java.util.List;
 
+import com.mall.entity.PageResult;
+import com.mall.model.TbGoods;
+
 /**
- * 业务逻辑接口
+ * 服务层接口
  *
- * @author Steven
+ * @author Administrator
  */
-public interface TypeTemplateService {
+public interface GoodsService {
 
     /**
      * 返回全部列表
      *
      * @return
      */
-    List<TbTypeTemplate> findAll();
+    List<TbGoods> findAll();
 
 
     /**
@@ -31,13 +31,13 @@ public interface TypeTemplateService {
     /**
      * 增加
      */
-    void add(TbTypeTemplate typeTemplate);
+//	void add(Goods goods);
 
 
     /**
      * 修改
      */
-    void update(TbTypeTemplate typeTemplate);
+    void update(TbGoods goods);
 
 
     /**
@@ -46,7 +46,7 @@ public interface TypeTemplateService {
      * @param id
      * @return
      */
-    TbTypeTemplate findOne(Long id);
+    TbGoods findOne(Long id);
 
 
     /**
@@ -63,6 +63,6 @@ public interface TypeTemplateService {
      * @param pageSize 每页记录数
      * @return
      */
-    PageResult findPage(TbTypeTemplate typeTemplate, int pageNum, int pageSize);
+    PageResult findPage(TbGoods goods, int pageNum, int pageSize);
 
 }

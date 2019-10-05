@@ -1,23 +1,24 @@
 package com.mall.sellergoods.service;
 
-import com.mall.entity.PageResult;
-import com.mall.model.TbTypeTemplate;
-
 import java.util.List;
 
+import com.mall.entity.PageResult;
+import com.mall.model.TbSeller;
+
+
 /**
- * 业务逻辑接口
+ * 服务层接口
  *
- * @author Steven
+ * @author Administrator
  */
-public interface TypeTemplateService {
+public interface SellerService {
 
     /**
      * 返回全部列表
      *
      * @return
      */
-    List<TbTypeTemplate> findAll();
+    List<TbSeller> findAll();
 
 
     /**
@@ -31,13 +32,13 @@ public interface TypeTemplateService {
     /**
      * 增加
      */
-    void add(TbTypeTemplate typeTemplate);
+    void add(TbSeller seller);
 
 
     /**
      * 修改
      */
-    void update(TbTypeTemplate typeTemplate);
+    void update(TbSeller seller);
 
 
     /**
@@ -46,7 +47,7 @@ public interface TypeTemplateService {
      * @param id
      * @return
      */
-    TbTypeTemplate findOne(Long id);
+    TbSeller findOne(String id);
 
 
     /**
@@ -54,7 +55,7 @@ public interface TypeTemplateService {
      *
      * @param ids
      */
-    void delete(Long[] ids);
+    void delete(String[] ids);
 
     /**
      * 分页
@@ -63,6 +64,14 @@ public interface TypeTemplateService {
      * @param pageSize 每页记录数
      * @return
      */
-    PageResult findPage(TbTypeTemplate typeTemplate, int pageNum, int pageSize);
+    PageResult findPage(TbSeller seller, int pageNum, int pageSize);
+
+    /**
+     * 更新状态
+     *
+     * @param sellerId
+     * @param status
+     */
+    void updateStatus(String sellerId, String status);
 
 }
